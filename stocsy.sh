@@ -124,6 +124,7 @@ echo ""
 
 # Set working directory
 if [ -n "$IF_METABOLOME" ] ; then
+	DR_WORK=${0%/*}
 	cp $IF_METABOLOME $DR_WORK/metabolome.csv
 fi
 if [ -n "$IF_INDEX" ] ; then
@@ -134,6 +135,8 @@ cd "$DR_WORK"
 octave-cli $DR_PROG/stocsy.m
 
 # Move output files
-if [ -n "$IF_METABOLOME" ] ; then
+if [ -n "$OF_STOCSYCORR" ] ; then
 	mv $DR_WORK/stocsy.csv $OF_STOCSYCORR
+else
+	echo 'No output file provided, output is in stocsy.csv';
 fi
