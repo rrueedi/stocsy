@@ -137,6 +137,7 @@ octave-cli $DR_PROG/stocsy.m
 # Move output files
 if [ -n "$OF_STOCSYCORR" ] ; then
 	mv $DR_WORK/stocsy.csv $OF_STOCSYCORR
+	echo 'Writing to ' $OF_STOCSYCORR
 else
 	echo 'No output file provided, output is in stocsy.csv';
 fi
